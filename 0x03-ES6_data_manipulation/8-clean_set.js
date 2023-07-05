@@ -1,9 +1,9 @@
 export default function cleanSet(set, startString) {
-  if (!startString) { return ''; }
+  if (!startString || typeof (startString) !== 'string') { return ''; }
   const wordsToMerge = [];
 
   for (const item of set) {
-    if (item.startsWith(startString)) {
+    if (item !== undefined && item.startsWith(startString)) {
       wordsToMerge.push(item.slice(startString.length));
     }
   }
